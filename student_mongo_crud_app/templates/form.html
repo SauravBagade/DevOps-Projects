@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="card-title mb-4">{{ action }} Student</h2>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{ student.name if student else '' }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" name="age" placeholder="Enter age" value="{{ student.age if student else '' }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="course" class="form-label">Course</label>
+        <input type="text" class="form-control" id="course" name="course" placeholder="Enter course" value="{{ student.course if student else '' }}">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">{{ action }}</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
